@@ -58,8 +58,26 @@
 		.bold { font-weight: bold; }
 
 		.underline {
-			border: 0;
-			border-bottom: 1px solid black;
+			border: 0 !important;
+			border-bottom: 1px solid black !important;
+		}
+
+		input[type=text],
+		.underline {
+			width: 100%;
+			display: inline;
+		}
+
+		input[type="text"] {
+			padding: 1px 0px;
+			border: solid 1px #dcdcdc;
+			border-collapse: collapse;
+			transition: box-shadow 0.3s, border 0.3s;
+		}
+		input[type="text"]:focus,
+		input[type="text"].focus {
+			border: solid 1px #707070;
+			box-shadow: 0 0 5px 1px #969696;
 		}
 
 		#qrCode {
@@ -88,11 +106,6 @@
 			font-size: 10px;
 		}
 
-		input[type=text],
-		.underline {
-			width: 100%;
-			display: inline;
-		}
 
 		#signature {
 			display: block;
