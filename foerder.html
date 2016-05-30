@@ -37,6 +37,24 @@
 			}
 		}
 
+		.falzt, .falzb, .hole {
+			position: absolute;
+			left: 0;
+			height: 1px;
+			width: 7mm;
+			background-color: black;
+		}
+		.falzt {
+			top: 87mm;
+		}
+		.falzb {
+			top: 192mm;
+		}
+		.hole {
+			top: 148.5mm;
+			width: 10mm;
+		}
+
 		.bold { font-weight: bold; }
 
 		.underline {
@@ -144,6 +162,10 @@
 </head>
 <body>
 	<page size="A4">
+		<span class="falzt"></span>
+		<span class="falzb"></span>
+		<span class="hole"></span>
+
 		<div id=letterHead>
 			<h1>Chaos Computer Club e. V.</h1>
 			<ul>
