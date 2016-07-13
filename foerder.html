@@ -150,6 +150,7 @@
 		.underline {
 			border: 0 !important;
 			border-bottom: 1px solid black !important;
+			background-color: white;
 		}
 
 		input[type=text],
@@ -202,11 +203,6 @@
 			text-align: center;
 			font-size: 10px;
 		}
-
-		#signature {
-			display: block;
-		}
-
 	</style>
 	<style type="text/css">
 		/*
@@ -376,8 +372,9 @@
 							<input type="text" name="date" class="underline">
 							<span>Datum</span>
 						</div>
-							<span id="signature" class="underline"></span>
 						<div class="signfield" style="width: 80%;">
+							<span class="underline"></span>
+							<input type="text" name="date" class="underline" disabled>
 							<span>Unterschrift (bei Minderjährigen Unterschrift der Erziehungsberechtigten)</span>
 						</div>
 					</li>
