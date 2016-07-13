@@ -184,8 +184,14 @@
 		#letterHead ul li {
 			display: inline;
 		}
-		#personalInfo div div {
-			display: inline-block;
+		.fcboth {
+			clear: both;
+		}
+		#personalInfo div div,
+		.signfield {
+			float: left;
+			box-sizing: border-box;
+			padding: 1px 2px;
 		}
 		#personalInfo div div span {
 			font-size: 10px;
@@ -314,11 +320,11 @@
 						<span>Bitte direkt am Computer, oder in <span class="bold">Druckbuchstaben</span> ausfüllen!</span>
 						<div id="personalInfo">
 							<div>
-								<div style="width: 35%;">
+								<div style="width: 36%;">
 									<input type="text" name="addrExtra">
 									<span>Optional: Adresszusatz, Organisation oder c/o</span>
 								</div>
-								<div style="width: 20%;">
+								<div style="width: 24%;">
 									<input type="text" name="firstname">
 									<span>Vorname</span>
 								</div>
@@ -332,7 +338,7 @@
 									<input type="text" name="street">
 									<span>Straße und Hausnummer</span>
 								</div>
-								<div style="width: 39%;">
+								<div style="width: 40%;">
 									<input type="text" name="country">
 									<span>Land, falls nicht Deutschland</span>
 								</div>
@@ -342,38 +348,40 @@
 									<input type="text" name="postalCode">
 									<span>Postleitzahl</span>
 								</div>
-								<div style="width: 42%;">
+								<div style="width: 35%;">
 									<input type="text" name="city">
 									<span>Stadt/Ort</span>
 								</div>
-								<div style="width: 38%;">
+								<div style="width: 50%;">
 									<input type="text" name="pgp">
 									<span>Optional: PGP-Key ID (Key muss auf den <span class="bold">Key-Servern</span> sein)</span>
 								</div>
 							</div>
 							<div>
-								<div style="width: 95%;">
+								<div style="width: 100%;">
 									<input type="text" name="email">
 									<span class="bold">E-Mail-Adresse(n) – (Bitte unbedingt angeben und leserlich schreiben!)</span>
 								</div>
 							</div>
 						</div>
 					</li>
+					<div class="fcboth" />
 					<li>
 						<span>Dieses Formular ausdrucken</span>
 					</li>
 					<li id="sign">
 						<div><span class="bold">Handschriftlich</span> unterzeichnen</div>
-						<div style="display: inline-block; width: 20%;">
+						<div class="signfield" style="width: 20%;">
 							<span class="underline"></span>
 							<input type="text" name="date" class="underline">
 							<span>Datum</span>
 						</div>
-						<div style="display: inline-block; width: 70%;">
 							<span id="signature" class="underline"></span>
+						<div class="signfield" style="width: 80%;">
 							<span>Unterschrift (bei Minderjährigen Unterschrift der Erziehungsberechtigten)</span>
 						</div>
 					</li>
+					<div class="fcboth" />
 					<li>
 						<span><span class="bold">Vorzugsweise</span> einscannen und <span class="bold">per E-Mail an office@ccc.de</span> senden oder ausreichend frankiert per Post senden. <span class="bold">Einschreiben oder nicht ausreichend frankierte Briefe werden nicht angenommen!</span> (Ist einfach niemand tagsüber da um die Post anzunehmen)</span>
 					</li>
