@@ -322,31 +322,31 @@
 									<span>Optional: Adresszusatz, Organisation oder c/o</span>
 								</div>
 								<div style="width: 24%;">
-									<input type="text" name="firstname" maxlength=10 pattern="[a-zA-Z0-9 *#\\?!:;'\x22=()\[\]<>.@,&_+-]*">
+									<input type="text" name="firstname" maxlength=10 pattern="[a-zA-Z0-9 *#\\?!:;'\x22=()\[\]<>.@,&_+-]*" required>
 									<span>Vorname</span>
 								</div>
 								<div style="width: 40%;">
-									<input type="text" name="lastname" maxlength=20 pattern="[a-zA-Z0-9 *#\\?!:;'\x22=()\[\]<>.@,&_+-]*">
+									<input type="text" name="lastname" maxlength=20 pattern="[a-zA-Z0-9 *#\\?!:;'\x22=()\[\]<>.@,&_+-]*" required>
 									<span>Nachname</span>
 								</div>
 							</div>
 							<div>
 								<div style="width: 60%;">
-									<input type="text" name="street" maxlength=30 pattern="[a-zA-Z0-9 *#\\?!:;'\x22=()\[\]<>.@,&_+-]*">
+									<input type="text" name="street" maxlength=30 pattern="[a-zA-Z0-9 *#\\?!:;'\x22=()\[\]<>.@,&_+-]*" required>
 									<span>Straße und Hausnummer</span>
 								</div>
 								<div style="width: 40%;">
-									<input type="text" name="country" maxlength=3>
+									<input type="text" name="country" maxlength=3 required>
 									<span>Land, falls nicht Deutschland</span>
 								</div>
 							</div>
 							<div>
 								<div style="width: 15%;">
-									<input type="text" name="postalCode" pattern="[0-9]{4,5}">
+									<input type="text" name="postalCode" pattern="[0-9]{4,5}" required>
 									<span>Postleitzahl</span>
 								</div>
 								<div style="width: 35%;">
-									<input type="text" name="city" maxlength=40 pattern="[a-zA-Z0-9 *#\\?!:;'\x22=()\[\]<>.@,&_+-]*">
+									<input type="text" name="city" maxlength=40 pattern="[a-zA-Z0-9 *#\\?!:;'\x22=()\[\]<>.@,&_+-]*" required>
 									<span>Stadt/Ort</span>
 								</div>
 								<div style="width: 50%;">
@@ -356,7 +356,7 @@
 							</div>
 							<div>
 								<div style="width: 100%;">
-									<input type="text" name="email" maxlength=50 pattern="[a-zA-Z0-9 *#\\?!:;'\x22=()\[\]<>.@,&_+-]*">
+									<input type="text" name="email" maxlength=50 pattern="[a-zA-Z0-9 *#\\?!:;'\x22=()\[\]<>.@,&_+-]*" required>
 									<span class="bold">E-Mail-Adresse(n) mit Komma getrennt – (Bitte unbedingt angeben und leserlich schreiben!)</span>
 								</div>
 							</div>
