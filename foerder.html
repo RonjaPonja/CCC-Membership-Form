@@ -216,7 +216,7 @@
 			left: 0;
 			display: block;
 		}
-		.container {
+		.sc-container {
 			margin: 0 auto;
 			padding: 1.5em 0;
 			max-width: 30em;
@@ -224,7 +224,8 @@
 			color: #fff;
 			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 		}
-		.container input[type=text], select {
+		.sc-container input[type=text],
+		.sc-container select,
 			-webkit-appearance: none;
 			-moz-appearance : none;
 			height: 44px;
@@ -232,10 +233,10 @@
 			background-color: inherit;
 			color: white;
 		}
-		.container select option {
+		.sc-container select option {
 			background: #3D3D3D;
 		}
-		.container label  {
+		.sc-container label  {
 			margin-bottom: 6px;
 			display: block;
 		}
@@ -310,6 +311,7 @@
 <body>
 	<div class="sanityChecker"> <!-- style="visibility: hidden;-->
 		<div class="container">
+		<div class="sc-container">
 			<h1 id="disclaimer">Jaja. Javascript ist voll doof. Ohne Javascript gibt es aber auch kein Mehrwert an diesem Formular. Da kannst du auch gleich das alte PDF ausfüllen.</h1>
 			<p><input type="checkbox" id="sc-consent"> Ja, ich möchte Fördermitglied im Chaos Computer Club e. V. werden (unregelmäßig und selten erscheinende Datenschleuder inklusive) und habe die Satzung (https://www.ccc.de/de/satzung) und FAQ (https://ccc.de/de/faq) gelesen.</p>
 
