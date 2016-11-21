@@ -206,6 +206,38 @@
 			padding: 2px 0;
 			/*margin-top: 10px;*/
 		}
+		page.formpage {
+			/* This will be undone, once the sanity checker is happy. */
+			display: none !important;
+		}
+		.sanityChecker {
+			background: #3D3D3D;
+			top: 0;
+			left: 0;
+			display: block;
+		}
+		.container {
+			margin: 0 auto;
+			padding: 1.5em 0;
+			max-width: 30em;
+			font-weight: 50;
+			color: #fff;
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+		}
+		.container input[type=text] {
+			height: 44px;
+			padding: 0 5px;
+			background-color: inherit;
+			color: white;
+		}
+		.container label  {
+			margin-bottom: 6px;
+			display: block;
+		}
+		.sc-firstname,
+		.sc-lastname {
+			width: 10em;
+		}
 
 	</style>
 	<script type="text/javascript">
@@ -270,7 +302,42 @@
 	</script>
 </head>
 <body>
-	<page size="A4">
+	<div class="sanityChecker"> <!-- style="visibility: hidden;-->
+		<div class="container">
+			<h1 id="disclaimer">Jaja. Javascript ist voll doof. Ohne Javascript gibt es aber auch kein Mehrwert an diesem Formular. Da kannst du auch gleich das alte PDF ausfüllen.</h1>
+			<p><input type="checkbox" id="sc-consent"> Ja, ich möchte Fördermitglied im Chaos Computer Club e. V. werden (unregelmäßig und selten erscheinende Datenschleuder inklusive) und habe die Satzung (https://www.ccc.de/de/satzung) und FAQ (https://ccc.de/de/faq) gelesen.</p>
+
+			<div id="sc-name">
+				<input type="text" name="sc-firstname">
+				<label for="sc-firstname">Vorname*</label>
+
+				<input type="text" name="sc-lastname">
+				<label for="sc-lastname">Nachname*</label>
+			</div>
+
+			<input type="text" name="sc-street">
+			<label for="sc-street">Straße und Hausnummer*</label>
+
+			<input type="text" name="sc-postalCode">
+			<label for="sc-postalCode">Postleitzahl*</label>
+
+			<input type="text" name="sc-city">
+			<label for="sc-city">Stadt/Ort*</label>
+
+			<input type="text" name="addrExtra">
+			<label for="sc-addrExtra">Adresszusatz, Organisation oder c/o</label>
+
+			<input type="text" name="sc-email">
+			<label for="sc-email">E-Mail-Adresse*</label>
+
+			<input type="text" name="sc-gpg">
+			<label for="sc-gpg">PGP-Key ID (Key muss auf den Key-Servern sein)</label>
+
+			<input type="text" name="sc-country">
+			<label for="sc-country">Land, falls nicht Deutschland</label>
+		</div>
+	</div>
+	<page size="A4" class="formpage">
 		<span class="falzt"></span>
 		<span class="falzb"></span>
 		<span class="hole"></span>
