@@ -293,6 +293,8 @@
 		}
 
 		window.onload = function() {
+			document.getElementById('disclaimer').style.display = "none";
+
 			var inputs = document.getElementsByTagName("input");
 			for(var idx = 0; idx < inputs.length; idx++){
 				inputs[idx].onchange = onChange;
@@ -307,7 +309,6 @@
 			var today = new Date();
 			var today_string = [today.getDate(), today.getMonth() + 1, today.getFullYear()].join('.');
 			document.getElementsByName('date')[0].value = today_string;
-			document.getElementById('disclaimer').style.display = "none";
 
 			document.getElementById('show-form').onclick=function(){
 				document.getElementById('sanityChecker').style.display = "none";
