@@ -297,7 +297,8 @@
 
 			var today = new Date();
 			var today_string = [today.getDate(), today.getMonth() + 1, today.getFullYear()].join('.');
-			document.getElementsByName('date')[0].value = today_string;			
+			document.getElementsByName('date')[0].value = today_string;
+			document.getElementById('disclaimer').style.display = "none";
 		}
 	</script>
 </head>
