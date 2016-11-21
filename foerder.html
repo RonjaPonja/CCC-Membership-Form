@@ -206,11 +206,11 @@
 			padding: 2px 0;
 			/*margin-top: 10px;*/
 		}
-		page.formpage {
+		page#formpage {
 			/* This will be undone, once the sanity checker is happy. */
-			display: none !important;
+			display: none;
 		}
-		.sanityChecker {
+		#sanityChecker {
 			background: #3D3D3D;
 			top: 0;
 			left: 0;
@@ -226,6 +226,7 @@
 		}
 		.sc-container input[type=text],
 		.sc-container select,
+		.sc-container button {
 			-webkit-appearance: none;
 			-moz-appearance : none;
 			height: 44px;
@@ -240,7 +241,13 @@
 			margin-bottom: 6px;
 			display: block;
 		}
-
+		#show-form {
+			background-color: #3edd55;
+			width: 100%;
+			border: none;
+			text-align: center;
+			text-decoration: none;
+		}
 	</style>
 	<script type="text/javascript">
 		/*! QRious v2.0.1 | (C) 2016 Alasdair Mercer | GPL v3 License
@@ -301,12 +308,16 @@
 			var today_string = [today.getDate(), today.getMonth() + 1, today.getFullYear()].join('.');
 			document.getElementsByName('date')[0].value = today_string;
 			document.getElementById('disclaimer').style.display = "none";
+
+			document.getElementById('show-form').onclick=function(){
+				document.getElementById('sanityChecker').style.display = "none";
+				document.getElementById('formpage').style.display = "block";
+			};
 		}
 	</script>
 </head>
 <body>
-	<div class="sanityChecker"> <!-- style="visibility: hidden;-->
-		<div class="container">
+	<div id="sanityChecker"> <!-- style="visibility: hidden;-->
 		<div class="sc-container">
 			<h1 id="disclaimer">Jaja. Javascript ist voll doof. Ohne Javascript gibt es aber auch kein Mehrwert an diesem Formular. Da kannst du auch gleich das alte PDF ausfüllen.</h1>
 			<p><input type="checkbox" id="sc-consent"> Ja, ich möchte Fördermitglied im Chaos Computer Club e. V. werden (unregelmäßig und selten erscheinende Datenschleuder inklusive) und habe die Satzung (https://www.ccc.de/de/satzung) und FAQ (https://ccc.de/de/faq) gelesen.</p>
@@ -590,9 +601,11 @@
 				<option value="ZW">Simbabwe</option>
 			</select>
 			<label for="sc-country">Land, falls nicht Deutschland</label>
+
+			<button id="show-form">Formular Anzeigen</button>
 		</div>
 	</div>
-	<page size="A4" class="formpage">
+	<page size="A4" id="formpage">
 		<span class="falzt"></span>
 		<span class="falzb"></span>
 		<span class="hole"></span>
