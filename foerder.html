@@ -250,6 +250,44 @@
 			text-align: center;
 			text-decoration: none;
 		}
+
+		.checkbox {
+			width: 25px;
+			position: relative;
+			display: inline;
+		}
+
+		/* The [ ] */
+		.checkbox label {
+			cursor: pointer;
+			position: absolute;
+			width: 15px;
+			height: 15px;
+			top: 0;
+		  	left: 0;
+			background: #3d3d3d;
+			border:1px solid #d3d3d3;
+		}
+
+		/* The ✓ */
+		.checkbox input[type=checkbox]:checked + label:after {
+			content: '';
+			position: absolute;
+			width: 4px;
+			height: 2px;
+			background: transparent;
+			top: 5px;
+			left: 4.8px;
+			border: 2.5px solid white;
+			border-top: none;
+			border-right: none;
+
+			-webkit-transform: rotate(-45deg);
+			-moz-transform: rotate(-45deg);
+			-o-transform: rotate(-45deg);
+			-ms-transform: rotate(-45deg);
+			transform: rotate(-45deg);
+		}
 	</style>
 	<script type="text/javascript">
 		/*! QRious v2.0.1 | (C) 2016 Alasdair Mercer | GPL v3 License
@@ -323,7 +361,15 @@
 	<div id="sanityChecker"> <!-- style="visibility: hidden;-->
 		<div class="sc-container">
 			<h1 id="disclaimer">Jaja. Javascript ist voll doof. Ohne Javascript gibt es aber auch kein Mehrwert an diesem Formular. Da kannst du auch gleich das alte PDF ausfüllen.</h1>
-			<p><input type="checkbox" id="sc-consent"> Ja, ich möchte Fördermitglied im Chaos Computer Club e. V. werden (unregelmäßig und selten erscheinende Datenschleuder inklusive) und habe die Satzung (https://www.ccc.de/de/satzung) und FAQ (https://ccc.de/de/faq) gelesen.</p>
+
+			<input type="hidden" name="version" value="alpha"/>
+
+			<p>
+				<div class=checkbox>
+					<input type="checkbox" id="sc-consent">
+					<label for="sc-consent"/>
+				</div>Ja, ich möchte <span class="bold">Fördermitglied im Chaos Computer Club e. V.</span> werden (unregelmäßig und <span class="bold">selten</span> erscheinende Datenschleuder inklusive) und habe <a href="https://www.ccc.de/de/satzung">die Satzung</a> und <a href="https://ccc.de/de/faq">FAQ</a> gelesen.
+			</p>
 
 			<input type="text" name="sc-firstname">
 			<label for="sc-firstname">Vorname*</label>
