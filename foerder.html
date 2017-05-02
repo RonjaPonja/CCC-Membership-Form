@@ -179,6 +179,16 @@
 			border: solid 1px #707070;
 			box-shadow: 0 0 5px 1px #969696;
 		}
+		textarea {
+			display: block;
+			width: 100%;
+			border: none;
+			background-image: -moz-repeating-linear-gradient(180deg, transparent, transparent 13px, black);
+			background-image: -webkit-repeating-linear-gradient(180deg, transparent, transparent 13px, black);
+			background-image: -o-repeating-linear-gradient(180deg, transparent, transparent 13px, black);
+			background-image: repeating-linear-gradient(180deg, transparent, transparent 13px, black);
+			background-size: 100% 14px;
+		}
 
 		#qrCode {
 			position: absolute;
@@ -779,9 +789,8 @@
 					</li>
 				</ol>
 			</form>
-			<span class="underline">Bemerkungen:</span><input type="text" class="underline">
-			<input type="text" class="underline">
-			<input type="text" class="underline">
+			<span class="underline">Bemerkungen:</span>
+			<textarea class="comment" rows="3"></textarea>
 
 		</div>
 
