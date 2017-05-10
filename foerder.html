@@ -382,7 +382,18 @@
 			var today_string = [today.getDate(), today.getMonth() + 1, today.getFullYear()].join('.');
 			document.getElementsByName('date')[0].value = today_string;
 
-			document.getElementById('show-form').onclick=function(){
+			document.getElementById('show-form').onclick = function(){
+				document.getElementsByName('firstname')[0].value = document.getElementsByName('sc-firstname')[0].value;
+				document.getElementsByName('lastname')[0].value = document.getElementsByName('sc-lastname')[0].value;
+				document.getElementsByName('street')[0].value = document.getElementsByName('sc-street')[0].value;
+				document.getElementsByName('postalCode')[0].value = document.getElementsByName('sc-postalCode')[0].value;
+				document.getElementsByName('city')[0].value = document.getElementsByName('sc-city')[0].value;
+				document.getElementsByName('addrExtra')[0].value = document.getElementsByName('sc-addrExtra')[0].value;
+				document.getElementsByName('email')[0].value = document.getElementsByName('sc-email')[0].value;
+				document.getElementsByName('pgp')[0].value = document.getElementsByName('sc-pgp')[0].value;
+				document.getElementsByName('country')[0].value = document.getElementsByName('sc-country')[0].value;
+				generateQR()
+
 				document.getElementById('sanityChecker').style.display = "none";
 				document.getElementById('formpage').style.display = "block";
 			};
