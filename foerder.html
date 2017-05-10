@@ -403,31 +403,31 @@
 				</div>Ja, ich möchte <span class="bold">Fördermitglied im Chaos Computer Club e. V.</span> werden (unregelmäßig und <span class="bold">selten</span> erscheinende Datenschleuder inklusive) und habe <a href="https://www.ccc.de/de/satzung">die Satzung</a> und <a href="https://ccc.de/de/faq">FAQ</a> gelesen.
 			</p>
 
-			<input type="text" name="sc-firstname">
+			<input type="text" name="sc-firstname" placeholder="Hannah" required>
 			<label for="sc-firstname">Vorname*</label>
 
-			<input type="text" name="sc-lastname">
+			<input type="text" name="sc-lastname" placeholder="Acker" required>
 			<label for="sc-lastname">Nachname*</label>
 
-			<input type="text" name="sc-street">
+			<input type="text" name="sc-street" placeholder="Haupstraße 1" required>
 			<label for="sc-street">Straße und Hausnummer*</label>
 
-			<input type="text" name="sc-postalCode">
+			<input type="text" name="sc-postalCode" placeholder="12345" required>
 			<label for="sc-postalCode">Postleitzahl*</label>
 
-			<input type="text" name="sc-city">
+			<input type="text" name="sc-city" placeholder="Berlin" required>
 			<label for="sc-city">Stadt/Ort*</label>
 
-			<input type="text" name="addrExtra">
+			<input type="text" name="sc-addrExtra" placeholder="c/o Frank Nord">
 			<label for="sc-addrExtra">Adresszusatz, Organisation oder c/o</label>
 
-			<input type="text" name="sc-email">
+			<input type="text" name="sc-email" placeholder="h.acker@example.com" required>
 			<label for="sc-email">E-Mail-Adresse*</label>
 
 			<input type="text" name="sc-pgp" placeholder="0x1337cafe2342beef">
 			<label for="sc-pgp">PGP-Key ID (Key muss auf den Key-Servern sein)</label>
 
-			<select name="sc-country">
+			<select name="sc-country" required>
 				<option value="DE">Deutschland</option>
 				<option value="CH">Schweiz</option>
 				<option value="AT">Österreich</option>
@@ -681,7 +681,7 @@
 				<option value="ZM">Sambia</option>
 				<option value="ZW">Simbabwe</option>
 			</select>
-			<label for="sc-country">Land, falls nicht Deutschland</label>
+			<label for="sc-country">Land</label>
 
 			<button id="show-form">Formular Anzeigen</button>
 		</div>
@@ -727,45 +727,45 @@
 						<div id="personalInfo">
 							<div>
 								<div style="width: 36%;">
-									<input type="text" name="addrExtra" maxlength=30 >
+									<input type="text" name="addrExtra">
 									<span>Optional: Adresszusatz, Organisation oder c/o</span>
 								</div>
 								<div style="width: 24%;">
-									<input type="text" name="firstname" maxlength=10 required>
+									<input type="text" name="firstname">
 									<span>Vorname</span>
 								</div>
 								<div style="width: 40%;">
-									<input type="text" name="lastname" maxlength=20 required>
+									<input type="text" name="lastname">
 									<span>Nachname</span>
 								</div>
 							</div>
 							<div>
 								<div style="width: 60%;">
-									<input type="text" name="street" maxlength=30 required>
+									<input type="text" name="street">
 									<span>Straße und Hausnummer</span>
 								</div>
 								<div style="width: 40%;">
-									<span>Land, falls nicht Deutschland</span>
 									<input type="text" name="country">
+									<span>Land</span>
 								</div>
 							</div>
 							<div>
 								<div style="width: 15%;">
-									<input type="text" name="postalCode" required>
+									<input type="text" name="postalCode">
 									<span>Postleitzahl</span>
 								</div>
 								<div style="width: 35%;">
-									<input type="text" name="city" maxlength=40 required>
+									<input type="text" name="city">
 									<span>Stadt/Ort</span>
 								</div>
 								<div style="width: 50%;">
-									<input type="text" name="pgp" maxlength=42 placeholder="0x1337cafe2342beef">
+									<input type="text" name="pgp">
 									<span>Optional: PGP-Key ID (Key muss auf den <span class="bold">Key-Servern</span> sein)</span>
 								</div>
 							</div>
 							<div>
 								<div style="width: 100%;">
-									<input type="text" name="email" maxlength=50 required>
+									<input type="text" name="email">
 									<span class="bold">E-Mail-Adresse – (Bitte unbedingt angeben!)</span>
 								</div>
 							</div>
