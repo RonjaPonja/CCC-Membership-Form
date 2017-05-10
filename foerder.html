@@ -424,8 +424,8 @@
 			<input type="text" name="sc-email">
 			<label for="sc-email">E-Mail-Adresse*</label>
 
-			<input type="text" name="sc-gpg">
-			<label for="sc-gpg">PGP-Key ID (Key muss auf den Key-Servern sein)</label>
+			<input type="text" name="sc-pgp" placeholder="0x1337cafe2342beef">
+			<label for="sc-pgp">PGP-Key ID (Key muss auf den Key-Servern sein)</label>
 
 			<select name="sc-country">
 				<option value="DE">Deutschland</option>
@@ -745,8 +745,8 @@
 									<span>Straße und Hausnummer</span>
 								</div>
 								<div style="width: 40%;">
-									<input type="text" name="street" required>
 									<span>Land, falls nicht Deutschland</span>
+									<input type="text" name="country">
 								</div>
 							</div>
 							<div>
