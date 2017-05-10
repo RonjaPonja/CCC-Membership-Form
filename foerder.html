@@ -329,7 +329,7 @@
 		//# sourceMappingURL=qrious.min.js.map
 	</script>
 	<script type="text/javascript">
-		function onChange() {
+		function generateQR() {
 			var form = document.getElementById('application');
 			var formData = new FormData(form);
 			var formDict = {};
@@ -369,7 +369,7 @@
 
 			var inputs = document.getElementsByTagName("input");
 			for(var idx = 0; idx < inputs.length; idx++){
-				inputs[idx].onchange = onChange;
+				inputs[idx].onchange = generateQR;
 			}
 
 			var qr = new QRious({
