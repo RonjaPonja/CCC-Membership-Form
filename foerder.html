@@ -320,6 +320,44 @@
 					transition: color .1s;}
 
 
+		.sc-payment-switch {
+			overflow: hidden;
+			width: 100%;
+		}
+
+		.sc-payment-switch input {
+			position: absolute !important;
+			clip: rect(0, 0, 0, 0);
+			height: 1px;
+			width: 1px;
+			border: 0;
+			overflow: hidden;
+		}
+
+		.sc-payment-switch label {
+			padding-top: 12px;
+			float: left;
+			box-sizing: border-box;
+			width: 50%;
+			height: 44px;
+			margin-bottom: 0;
+			background-color: #e4e4e4;
+			color: rgba(0, 0, 0, 0.6);
+			font-size: 14px;
+			text-align: center;
+			border: 1px solid rgba(220, 220, 220, 0.2);*/
+			transition: all 0.1s ease-in-out;
+		}
+
+		.sc-payment-switch label:hover {
+			cursor: pointer;
+		}
+
+		.sc-payment-switch input:checked + label {
+			background-color: #3edd55;
+			-webkit-box-shadow: none;
+			box-shadow: none;
+		}
 	</style>
 	<script type="text/javascript">
 		/*! QRious v2.0.1 | (C) 2016 Alasdair Mercer | GPL v3 License
@@ -384,6 +422,10 @@
 
 			document.getElementById('show-form').onclick = function(){
 				document.getElementsByName('consent')[0].checked = document.getElementsByName('sc-consent')[0].checked
+
+				document.getElementsByName('payment')[0].checked = document.getElementsByName('sc-payment')[0].checked
+				document.getElementsByName('payment')[1].checked = document.getElementsByName('sc-payment')[1].checked
+
 				document.getElementsByName('firstname')[0].value = document.getElementsByName('sc-firstname')[0].value;
 				document.getElementsByName('lastname')[0].value = document.getElementsByName('sc-lastname')[0].value;
 				document.getElementsByName('street')[0].value = document.getElementsByName('sc-street')[0].value;
@@ -414,6 +456,14 @@
 					<label for="sc-consent"/>
 				</div>Ja, ich möchte <span class="bold">Fördermitglied im Chaos Computer Club e. V.</span> werden (unregelmäßig und <span class="bold">selten</span> erscheinende Datenschleuder inklusive) und habe <a href="https://www.ccc.de/de/satzung">die Satzung</a> und <a href="https://ccc.de/de/faq">FAQ</a> gelesen.
 			</p>
+
+			<div class="sc-payment-switch">
+				<input type="radio" id="sc-regular" name="sc-payment" value="regular" checked/>
+				<label for="sc-regular">Normal (72 Euro)</label>
+				<input type="radio" id="sc-reduced" name="sc-payment" value="reduced" />
+				<label for="sc-reduced">Ermäßigt (36 Euro)</label>
+				<div class="sc-payment-title">Normaler oder ermäßigter Beitrag?</div>
+			</div>
 
 			<input type="text" name="sc-firstname" placeholder="Hannah" required>
 			<label for="sc-firstname">Vorname*</label>
