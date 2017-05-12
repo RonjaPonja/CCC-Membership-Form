@@ -168,7 +168,11 @@
 			display: inline;
 		}
 
-		input[type="text"] {
+		input[type="text"],
+		select {
+			/* All browsers round select, iOS browsers round.. a lot?  */
+			border-radius: 0;
+
 			padding: 1px 0px;
 			border: solid 1px #dcdcdc;
 			border-collapse: collapse;
