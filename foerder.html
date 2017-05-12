@@ -238,13 +238,20 @@
 			/* This will be undone, once the sanity checker is happy. */
 			display: none;
 		}
+
 		#sanityChecker {
-			background: #3D3D3D;
+			position: absolute;
+			z-index: 10;
+			transition: 0.5s;
+
 			top: 0;
 			left: 0;
 			height: 100%;
+			width: 100%;
 			display: block;
 			overflow-y: scroll;
+			background: #3D3D3D;
+
 		}
 		.sc-container {
 			margin: 0 auto;
@@ -443,8 +450,9 @@
 				document.getElementsByName('country')[0].value = document.getElementsByName('sc-country')[0].value;
 				generateQR()
 
-				document.getElementById('sanityChecker').style.display = "none";
+				document.getElementById('sanityChecker').style.height = "0";
 				document.getElementById('formpage').style.display = "block";
+
 			};
 		}
 	</script>
