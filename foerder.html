@@ -419,11 +419,6 @@
 		window.onload = function() {
 			document.getElementById('disclaimer').style.display = "none";
 
-			var inputs = document.getElementsByTagName("input");
-			for(var idx = 0; idx < inputs.length; idx++){
-				inputs[idx].onchange = generateQR;
-			}
-
 			var qr = new QRious({
 				element: document.getElementById('qrCode'),
 				value: "from __future__ import dbaseIII",
