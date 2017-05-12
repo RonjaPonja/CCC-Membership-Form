@@ -381,12 +381,14 @@
 	<script type="text/javascript">
 		function generateQR() {
 			var form = document.getElementById('application');
-			var formData = new FormData(form);
+
 			var formDict = {};
-			for(var pair of formData.entries()) {
-				if(pair[0] == 'date') { continue; }
-				formDict[pair[0]] = pair[1];
-			}
+			var inputs = [].slice.call(form.getElementsByTagName('input'));
+			inputs.forEach(input => {
+				formDict[input.name] = input.value;
+			});
+			formDict["payment"] = form.querySelector('input[name="payment"]:checked').value;
+			formDict["consent"] = form.querySelector('input[name="consent"]').checked;
 
 			var jsonMsg = JSON.stringify(formDict);
 			console.log(jsonMsg);
