@@ -206,12 +206,6 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 			background-size: 100% 18px;
 		}
 
-		/* This only works partially and looks differ between browsers. */
-		input[type="text"][disabled=""] {
-			color: black !important;
-			background-color: white !important;
-		}
-
 		#qrCode {
 			position: absolute;
 			width: 200;
@@ -795,13 +789,13 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 				<input type="hidden" name="version" value="alpha"/>
 				<ol>
 					<li>
-						<input type="checkbox" name="consent" id="consent" disabled>
+						<input type="checkbox" name="consent" id="consent" onclick="return false;" readonly>
 						<label for="consent">Ja, ich möchte <span class="bold">Fördermitglied im Chaos Computer Club e. V.</span> werden (unregelmäßig und <span class="bold">selten</span> erscheinende Datenschleuder inklusive) und habe die <span class="bold">Satzung</span> (https://www.ccc.de/de/satzung) und <span class="bold">FAQ</span> (https://ccc.de/de/faq) gelesen.</label>
 					</li>
 					<li>
-						<input type="radio" name="payment" value="regular" id="regular" disabled>
+						<input type="radio" name="payment" value="regular" id="regular" onclick="return false;">
 						<label for="regular"><span class="bold">Normale</span> Fördermitgliedschaft für <span class="bold">72€</span> pro Jahr oder</label><br/>
-						<input type="radio" name="payment" value="reduced" id="reduced" disabled>
+						<input type="radio" name="payment" value="reduced" id="reduced" onclick="return false;">
 						<label for="reduced"><span class="bold">Ermäßigte</span> Fördermitgliedschaft für <span class="bold">36€</span> pro Jahr Einen <span class="bold">Nachweis</span>, aus dem einer der folgenden Ermäßigungsgründe hervorgeht, lege ich in Kopie bei: Studium, Schule, Arbeitslosigkeit, Umschulung, Rente oder Behinderung.</label>
 					</li>
 					<li>
@@ -809,45 +803,45 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 						<div id="personalInfo">
 							<div>
 								<div style="width: 36%;">
-									<input type="text" name="addrExtra" disabled>
+									<input type="text" name="addrExtra" readonly>
 									<span>Optional: Adresszusatz, Organisation oder c/o</span>
 								</div>
 								<div style="width: 24%;">
-									<input type="text" name="firstname" disabled>
+									<input type="text" name="firstname" readonly>
 									<span>Vorname</span>
 								</div>
 								<div style="width: 40%;">
-									<input type="text" name="lastname" disabled>
+									<input type="text" name="lastname" readonly>
 									<span>Nachname</span>
 								</div>
 							</div>
 							<div>
 								<div style="width: 60%;">
-									<input type="text" name="street" disabled>
+									<input type="text" name="street" readonly>
 									<span>Straße und Hausnummer</span>
 								</div>
 								<div style="width: 40%;">
-									<input type="text" name="country" disabled>
+									<input type="text" name="country" readonly>
 									<span>Land</span>
 								</div>
 							</div>
 							<div>
 								<div style="width: 15%;">
-									<input type="text" name="postalCode" disabled>
+									<input type="text" name="postalCode" readonly>
 									<span>Postleitzahl</span>
 								</div>
 								<div style="width: 35%;">
-									<input type="text" name="city" disabled>
+									<input type="text" name="city" readonly>
 									<span>Stadt/Ort</span>
 								</div>
 								<div style="width: 50%;">
-									<input type="text" name="pgp" disabled>
+									<input type="text" name="pgp" readonly>
 									<span>Optional: PGP-Key ID (Key muss auf den <span class="bold">Key-Servern</span> sein)</span>
 								</div>
 							</div>
 							<div>
 								<div style="width: 100%;">
-									<input type="text" name="email" disabled>
+									<input type="text" name="email" readonly>
 									<span class="bold">E-Mail-Adresse – (Bitte unbedingt angeben!)</span>
 								</div>
 							</div>
@@ -861,12 +855,12 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 						<div><span class="bold">Handschriftlich</span> unterzeichnen</div>
 						<div class="signfield" style="width: 20%;">
 							<span class="underline"></span>
-							<input type="text" name="date" class="underline" disabled>
+							<input type="text" name="date" class="underline" readonly>
 							<span>Datum</span>
 						</div>
 						<div class="signfield" style="width: 80%;">
 							<span class="underline"></span>
-							<input type="text" name="signature" class="underline" disabled>
+							<input type="text" name="signature" class="underline" readonly>
 							<span>Unterschrift (bei Minderjährigen Unterschrift der Erziehungsberechtigten)</span>
 						</div>
 					</li>
