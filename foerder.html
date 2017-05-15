@@ -378,7 +378,7 @@
 				formDict[pair[0]] = pair[1];
 			}
 
-			var jsonMsg = JSON.stringify(formDict);
+			var jsonMsg = window.btoa(JSON.stringify(formDict));
 			console.log(jsonMsg);
 
 			var qr = new QRious({
