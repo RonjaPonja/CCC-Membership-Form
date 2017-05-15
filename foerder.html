@@ -395,7 +395,7 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 			var form = document.getElementById('application');
 
 			var formDict = {};
-			var inputs = [].slice.call(form.getElementsByTagName('input'));
+			var inputs = Array.prototype.slice.call(form.getElementsByTagName('input'));
 			inputs.forEach(input => {
 				formDict[input.name] = input.value;
 			});
