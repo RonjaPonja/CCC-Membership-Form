@@ -201,22 +201,34 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 			border: solid 1px #707070;
 			box-shadow: 0 0 5px 1px #969696;
 		}
-		textarea {
+
+		.comment {
 			display: block;
 			width: 100%;
 			resize: none;
 			overflow: hidden;
-
-			/* overwrite browser default styles */
-			font-size: 15px;
-			font-family: comic_neueregular;
-			line-height: 18px;
-
 			border: none;
+			font-size: 15px;
+			line-height: 18px;
+		}
+
+		#comment {
+			font-family: comic_neueregular;
+			background-size: 100% 18px;
+
 			background-image: -moz-repeating-linear-gradient(180deg, transparent, transparent 17px, black);
 			background-image: -webkit-repeating-linear-gradient(180deg, transparent, transparent 17px, black);
 			background-image: -o-repeating-linear-gradient(180deg, transparent, transparent 17px, black);
 			background-image: repeating-linear-gradient(180deg, transparent, transparent 17px, black);
+		}
+		#sc-comment {
+			margin-top: 10px;
+			height: auto !important;
+
+			background-image: -moz-repeating-linear-gradient(180deg, transparent, transparent 17px, #dcdcdc);
+			background-image: -webkit-repeating-linear-gradient(180deg, transparent, transparent 17px, #dcdcdc);
+			background-image: -o-repeating-linear-gradient(180deg, transparent, transparent 17px, #dcdcdc);
+			background-image: repeating-linear-gradient(180deg, transparent, transparent 17px, #dcdcdc);
 			background-size: 100% 18px;
 		}
 
@@ -281,7 +293,8 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 		}
 		.sc-container input[type=text],
 		.sc-container select,
-		.sc-container button {
+		.sc-container button,
+	        .sc-container textarea	{
 			-webkit-appearance: none;
 			-moz-appearance : none;
 			height: 44px;
@@ -466,6 +479,7 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 				document.getElementsByName('email')[0].value = document.getElementsByName('sc-email')[0].value;
 				document.getElementsByName('pgp')[0].value = document.getElementsByName('sc-pgp')[0].value;
 				document.getElementsByName('country')[0].value = document.getElementsByName('sc-country')[0].value;
+				document.getElementsByName('comment')[0].value = document.getElementsByName('sc-comment')[0].value;
 				generateQR()
 				window.print();
 			};
@@ -775,6 +789,9 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 			<label for="sc-country">Land</label>
 
 			<button id="show-form">Drucken</button>
+
+			<textarea class="comment" id="sc-comment" name="sc-comment" rows="3"></textarea>
+			<label for="sc-comment">Bemerkungen</label>
 		</div>
 	</div>
 	<page size="A4" id="formpage">
@@ -889,7 +906,7 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 				</ol>
 			</form>
 			<span class="underline">Bemerkungen:</span>
-			<textarea class="comment" rows="3"></textarea>
+			<textarea class="comment" id="comment" name="comment" rows="3"></textarea>
 
 		</div>
 
