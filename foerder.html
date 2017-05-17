@@ -306,6 +306,10 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 			display: inline;
 		}
 
+		.checkbox input[type=checkbox] {
+			visibility: hidden;
+		}
+
 		/* The [ ] */
 		.checkbox label {
 			cursor: pointer;
@@ -319,7 +323,7 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 		}
 
 		/* The ✓ */
-		.checkbox input[type=checkbox]:checked + label:after {
+		.checkbox input[type=checkbox]:checked + label::after {
 			content: '';
 			position: absolute;
 			width: 4px;
