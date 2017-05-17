@@ -50,6 +50,12 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 				width: 100%;
 				height: 100%;
 			}
+			#formpage {
+				display: block !important;
+			}
+			#sanityChecker {
+				display: none !important;
+			}
 		}
 
 		@media screen and (max-device-width: 640px) {
@@ -461,10 +467,7 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 				document.getElementsByName('pgp')[0].value = document.getElementsByName('sc-pgp')[0].value;
 				document.getElementsByName('country')[0].value = document.getElementsByName('sc-country')[0].value;
 				generateQR()
-
-				document.getElementById('sanityChecker').style.height = "0";
-				document.getElementById('formpage').style.display = "block";
-
+				window.print();
 			};
 		}
 	</script>
@@ -771,7 +774,7 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 			</select>
 			<label for="sc-country">Land</label>
 
-			<button id="show-form">Formular Anzeigen</button>
+			<button id="show-form">Drucken</button>
 		</div>
 	</div>
 	<page size="A4" id="formpage">
