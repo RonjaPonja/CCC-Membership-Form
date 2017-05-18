@@ -425,7 +425,7 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 			formDict["payment"] = form.querySelector('input[name="payment"]:checked').value;
 			formDict["consent"] = form.querySelector('input[name="consent"]').checked;
 
-			var jsonMsg = JSON.stringify(formDict);
+			var jsonMsg = window.btoa(JSON.stringify(formDict));
 			console.log(jsonMsg);
 
 			var qr = new QRious({
