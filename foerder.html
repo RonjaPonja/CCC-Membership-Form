@@ -490,13 +490,13 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 <body>
 	<div id="sanityChecker"> <!-- style="visibility: hidden;-->
 		<div class="sc-container">
-			<h1 id="disclaimer">Jaja. Javascript ist voll doof. Ohne Javascript gibt es aber auch kein Mehrwert an diesem Formular. Da kannst du auch gleich das alte PDF ausfüllen.</h1>
+			<h1 id="disclaimer">Hallo, ibims, dein Javascript <3</h1>
 
 			<input type="hidden" name="version" value="alpha"/>
 
 			<p>
 				<div class=checkbox>
-					<input type="checkbox" name="sc-consent" id="sc-consent">
+					<input type="checkbox" name="sc-consent" id="sc-consent" required>
 					<label for="sc-consent"/>
 				</div>Ja, ich möchte <span class="bold">Fördermitglied im Chaos Computer Club e. V.</span> werden (unregelmäßig und <span class="bold">selten</span> erscheinende Datenschleuder inklusive) und habe <a href="https://www.ccc.de/de/satzung">die Satzung</a> und <a href="https://ccc.de/de/faq">FAQ</a> gelesen.
 			</p>
@@ -515,25 +515,11 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 			<input type="text" name="sc-lastname" placeholder="Acker" required>
 			<label for="sc-lastname">Nachname*</label>
 
-			<input type="text" name="sc-street" placeholder="Hauptstraße 1" required>
-			<label for="sc-street">Straße und Hausnummer*</label>
 
-			<input type="text" name="sc-postalCode" placeholder="12345" required>
-			<label for="sc-postalCode">Postleitzahl*</label>
-
-			<input type="text" name="sc-city" placeholder="Entenhausen" required>
-			<label for="sc-city">Stadt/Ort*</label>
-
-			<input type="text" name="sc-addrExtra" placeholder="c/o Frank Nord">
-			<label for="sc-addrExtra">Adresszusatz, Organisation oder c/o</label>
-
-			<input type="text" name="sc-email" placeholder="h.acker@example.com" required>
-			<label for="sc-email">E-Mail-Adresse*</label>
-
-			<input type="text" name="sc-pgp" placeholder="0x1337cafe2342beef">
-			<label for="sc-pgp">PGP-Key ID (Key muss auf den Key-Servern sein)</label>
-
-			<select name="sc-country" required>
+			<input type="text" name="sc-addr1" placeholder="Hauptstraße 1" required>
+			<input type="text" name="sc-addr2" placeholder="12345 Entenhausen">
+			<input type="text" name="sc-addr3" placeholder="c/o Frank Nord">
+			<select name="sc-country" selected="Deutschland">
 				<option value="DE">Deutschland</option>
 				<option value="CH">Schweiz</option>
 				<option value="AT">Österreich</option>
@@ -787,7 +773,14 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 				<option value="ZM">Sambia</option>
 				<option value="ZW">Simbabwe</option>
 			</select>
-			<label for="sc-country">Land</label>
+			<label for="sc-addr1">Adresse*</label>
+
+			<input type="text" name="sc-email" placeholder="h.acker@example.com" required>
+			<label for="sc-email">E-Mail-Adresse*</label>
+
+			<input type="text" name="sc-pgp" placeholder="0x1337cafe2342beef">
+			<label for="sc-pgp">PGP-Key ID (Key muss auf den Key-Servern sein)</label>
+
 
 			<button id="show-form">Drucken</button>
 
