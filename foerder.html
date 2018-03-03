@@ -441,7 +441,7 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 				document.getElementsByName('comment')[0].value = document.getElementsByName('sc-comment')[0].value;
 				generateQR()
 				window.print();
-			};
+			});
 		}
 	</script>
 </head>
@@ -736,8 +736,7 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 			<input type="text" name="sc-pgp" placeholder="0x1337cafe2342beef">
 			<label for="sc-pgp">PGP-Key ID (Key muss auf den Key-Servern sein)</label>
 
-
-			<button id="show-form">Drucken</button>
+			<button id="show-form" type="submit">Drucken</button>
 
 			<textarea class="comment" id="sc-comment" name="sc-comment" rows="3"></textarea>
 			<label for="sc-comment">Bemerkungen</label>
