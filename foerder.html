@@ -59,7 +59,7 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 		}
 
 		@media screen and (max-device-width: 640px) {
-			.sc-container {
+			#sc-form {
 				max-width: 95% !important;
 			}
 		}
@@ -283,7 +283,7 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 			background: #3D3D3D;
 
 		}
-		.sc-container {
+		#sc-form {
 			margin: 0 auto;
 			padding: 1.5em 0;
 			max-width: 30em;
@@ -291,10 +291,10 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 			color: #fff;
 			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 		}
-		.sc-container input[type=text],
-		.sc-container select,
-		.sc-container button,
-		.sc-container textarea	{
+		#sc-form input[type=text],
+		#sc-form select,
+		#sc-form button,
+		#sc-form textarea	{
 			-webkit-appearance: none;
 			-moz-appearance : none;
 			height: 44px;
@@ -303,17 +303,17 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 			background-color: inherit;
 			color: white;
 		}
-		.sc-container select option {
+		#sc-form select option {
 			background: #3D3D3D;
 		}
-		.sc-container label, .sc-payment-title  {
+		#sc-form label, .sc-payment-title  {
 			margin-bottom: 9px;
 			display: block;
 		}
 		#show-form {
 			font-size: 14px;
-			color: rgba(0, 0, 0, 0.6);
-			background-color: #3edd55;
+			color: rgba(0, 0, 0, 0.6) !important;
+			background-color: #3edd55 !important;
 			width: 100%;
 			border: none;
             border-radius: 0;
@@ -321,10 +321,10 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 			text-decoration: none;
 		}
 
-		.sc-container a:link,
-		.sc-container a:visited { color: #3eccdd; }
-		.sc-container a:hover   { color: #7FDBFF; }
-		.sc-container a         { color: #3eccdd;
+		#sc-form a:link,
+		#sc-form a:visited { color: #3eccdd; }
+		#sc-form a:hover   { color: #7FDBFF; }
+		#sc-form a         { color: #3eccdd;
 					transition: color .1s;}
 
 
@@ -447,7 +447,7 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 </head>
 <body>
 	<div id="sanityChecker"> <!-- style="visibility: hidden;-->
-		<div class="sc-container">
+		<form id="sc-form">
 			<h1 id="disclaimer">Hallo, ibims, dein Javascript <3</h1>
 
 			<input type="hidden" name="version" value="alpha"/>
@@ -741,7 +741,7 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 
 			<textarea class="comment" id="sc-comment" name="sc-comment" rows="3"></textarea>
 			<label for="sc-comment">Bemerkungen</label>
-		</div>
+		</form>
 	</div>
 	<page size="A4" id="formpage">
 		<span class="falzt"></span>
