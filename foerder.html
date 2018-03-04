@@ -366,7 +366,9 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 			var formDict = {};
 			var inputs = Array.prototype.slice.call(form.getElementsByTagName('input'));
 			inputs.forEach(input => {
-				formDict[input.name] = input.value;
+				if (input.value) {
+					formDict[input.name] = input.value;
+				}
 			});
 			formDict["payment"] = form.querySelector('input[name="payment"]:checked').value;
 
