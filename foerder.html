@@ -43,7 +43,7 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 			#formpage {
 				display: block !important;
 			}
-			#sanityChecker {
+			#sc-container {
 				display: none !important;
 			}
 		}
@@ -248,16 +248,16 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 			padding: 2px 0;
 			/*margin-top: 10px;*/
 		}
-		page#formpage {
-			/* This will be undone, once the sanity checker is happy. */
-			display: none;
-		}
 
 		.dinCont li {
 			margin-bottom: 7px;
 		}
 
-		#sanityChecker {
+		#sc-container {
+			/* The sanity checker is enabled via JS.
+			   This way the form can also work in tinfoil hat browsers.*/
+			display: none;
+
 			position: absolute;
 			z-index: 10;
 			transition: 0.5s;
@@ -266,7 +266,6 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 			left: 0;
 			height: 100%;
 			width: 100%;
-			display: block;
 			overflow-y: scroll;
 			background: #3D3D3D;
 
@@ -397,7 +396,8 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 		}
 
 		window.onload = function() {
-			document.getElementById('disclaimer').style.display = "none";
+			document.getElementById('sc-container').style.display = 'block';
+			document.getElementById('formpage').style.display = 'none';
 
 			var qr = new QRious({
 				element: document.getElementById('qrCode'),
@@ -431,14 +431,12 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 	</script>
 </head>
 <body>
-	<div id="sanityChecker"> <!-- style="visibility: hidden;-->
+	<div id="sc-container">
 		<form id="sc-form">
-			<h1 id="disclaimer">Hallo, ibims, dein Javascript <3</h1>
-
 			<input type="hidden" name="version" value="alpha"/>
 
 			<p>
-				Ja, ich möchte <span class="bold">Fördermitglied im Chaos Computer Club e. V.</span> werden (unregelmäßig und <span class="bold">selten</span> erscheinende Datenschleuder inklusive) und habe <a href="https://www.ccc.de/de/satzung">die Satzung</a> und <a href="https://ccc.de/de/faq">FAQ</a> gelesen.
+				Ich möchte <span class="bold">Fördermitglied im Chaos Computer Club e. V.</span> werden (unregelmäßig und <span class="bold">selten</span> erscheinende Datenschleuder inklusive) und habe <a href="https://www.ccc.de/de/satzung">die Satzung</a> und <a href="https://ccc.de/de/faq">FAQ</a> gelesen.
 			</p>
 
 			<div class="sc-payment-switch">
@@ -738,7 +736,7 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 
 		<div class="dinAddrRet"></div>
 		<div class="dinAddrFwd">
-			<p>Chaos Computer Club e. V.<br/>Zeiseweg 9<br/>22765 Hamburg</p>
+			Chaos Computer Club e. V.<br/>Zeiseweg 9<br/>22765 Hamburg
 		</div>
 
 		<div class="dinInfo">
@@ -752,7 +750,7 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 			<form id="application" action="#">
 				<input type="hidden" name="version" value="alpha"/>
 				<p>
-					Ich möchte <span class="bold">Fördermitglied im Chaos Computer Club e. V.</span> werden (unregelmäßig und <span class="bold">selten</span> erscheinende Datenschleuder inklusive) und habe die <span class="bold">Satzung</span> (https://www.ccc.de/de/satzung) und <span class="bold">FAQ</span> (https://ccc.de/de/faq) gelesen.</label>
+					Ich möchte <span class="bold">Fördermitglied im Chaos Computer Club e. V.</span> werden (unregelmäßig und <span class="bold">selten</span> erscheinende Datenschleuder inklusive) und habe <a href="https://www.ccc.de/de/satzung">die Satzung</a> und <a href="https://ccc.de/de/faq">FAQ</a> gelesen.
 				</p>
 				<p>
 					<input type="radio" name="payment" value="regular" id="regular" onclick="return false;">
@@ -779,7 +777,7 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 						</div>
 						<div>
 							<div style="width: 50%;">
-								<input type="text" name="email" readonly>
+								<input type="text" name="email">
 								<span class="bold">E-Mail-Adresse – (Bitte unbedingt angeben!)</span>
 							</div>
 							<div style="width: 25%;">
@@ -793,7 +791,7 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 						</div>
 						<div>
 							<div style="width: 50%;">
-								<input type="text" name="pgp" readonly>
+								<input type="text" name="pgp">
 								<span>Optional: PGP-Key ID (Key muss auf den <span class="bold">Key-Servern</span> sein)</span>
 							</div>
 							<div style="width: 50%;">
@@ -810,7 +808,7 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 					<div><span class="bold">Handschriftlich</span> unterzeichnen</div>
 					<div class="signfield" style="width: 20%;">
 						<span class="underline"></span>
-						<input type="text" name="date" class="underline" readonly>
+						<input type="text" name="date" class="underline">
 						<span>Datum</span>
 					</div>
 					<div class="signfield" style="width: 80%;">
