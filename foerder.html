@@ -292,7 +292,8 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 			background-color: #3D3D3D;
 		}
 		#sc-form label, .sc-payment-title  {
-			margin-bottom: 9px;
+			margin-top: 9px;
+			margin-bottom: 2px;
 			display: block;
 		}
 		#show-form {
@@ -447,19 +448,20 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 			</p>
 
 			<div class="sc-payment-switch">
+				<div class="sc-payment-title">Normaler oder ermäßigter Beitrag?</div>
 				<input type="radio" id="sc-regular" name="sc-payment" value="regular" checked/>
 				<label for="sc-regular">Normal (72 Euro)</label>
 				<input type="radio" id="sc-reduced" name="sc-payment" value="reduced" />
 				<label for="sc-reduced">Ermäßigt (36 Euro)</label>
-				<div class="sc-payment-title">Normaler oder ermäßigter Beitrag?</div>
 			</div>
 
-			<input type="text" name="sc-firstname" pattern=".{1,30}" placeholder="Hannah" required autofocus>
 			<label for="sc-firstname">Vorname*</label>
+			<input type="text" name="sc-firstname" pattern=".{1,30}" placeholder="Hannah" required autofocus>
 
-			<input type="text" name="sc-lastname" pattern=".{1,30}" placeholder="Acker" required>
 			<label for="sc-lastname">Nachname*</label>
+			<input type="text" name="sc-lastname" pattern=".{1,30}" placeholder="Acker" required>
 
+			<label for="sc-addr1">Adresse*</label>
 			<input type="text" name="sc-addr1" pattern=".{1,30}" placeholder="Hauptstraße 1" required>
 			<input type="text" name="sc-addr2" pattern=".{1,30}" placeholder="12345 Entenhausen" required>
 			<input type="text" name="sc-addr3" placeholder="c/o Frank Nord">
@@ -717,18 +719,17 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 				<option value="ZM">Sambia</option>
 				<option value="ZW">Simbabwe</option>
 			</select>
-			<label for="sc-addr1">Adresse*</label>
 
-			<input type="text" name="sc-email" pattern=".+@.+\..+" placeholder="h.acker@example.com" required>
 			<label for="sc-email">E-Mail-Adresse*</label>
+			<input type="text" name="sc-email" pattern=".+@.+\..+" placeholder="h.acker@example.com" required>
 
-			<input type="text" name="sc-pgp" pattern="(0x[a-f0-9]{16}|)" placeholder="0x1337cafe2342beef">
 			<label for="sc-pgp">PGP-Key ID (Key muss auf den Key-Servern sein)</label>
+			<input type="text" name="sc-pgp" pattern="(0x[a-f0-9]{16}|)" placeholder="0x1337cafe2342beef">
 
 			<button id="show-form" type="submit">Drucken</button>
 
-			<textarea class="comment" id="sc-comment" name="sc-comment" rows="3"></textarea>
 			<label for="sc-comment">Bemerkungen</label>
+			<textarea class="comment" id="sc-comment" name="sc-comment" rows="3"></textarea>
 
 			<br>
 			<p>
