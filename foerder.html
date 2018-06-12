@@ -396,7 +396,7 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 			]
 
 			if (document.getElementsByName("addr3")[0].value != '') {
-				fields = [document.getElementsByName("addr3")[0].value].concat(fields);
+				fields.splice(1, 0, document.getElementsByName("addr3")[0].value);
 			}
 
 			var ret = document.getElementsByClassName("dinAddrRet")[0];
