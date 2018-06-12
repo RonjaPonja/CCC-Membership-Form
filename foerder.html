@@ -456,14 +456,14 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 			</div>
 
 			<label for="sc-firstname">Vorname</label>
-			<input type="text" name="sc-firstname" pattern=".{1,30}" placeholder="Hannah" required autofocus>
+			<input type="text" name="sc-firstname" maxlength="30" placeholder="Hannah" required autofocus>
 
 			<label for="sc-lastname">Nachname</label>
-			<input type="text" name="sc-lastname" pattern=".{1,30}" placeholder="Acker" required>
+			<input type="text" name="sc-lastname" maxlength="30" placeholder="Acker" required>
 
 			<label for="sc-addr1">Adresse</label>
-			<input type="text" name="sc-addr1" pattern=".{1,30}" placeholder="Hauptstraße 1" required>
-			<input type="text" name="sc-addr2" pattern=".{1,30}" placeholder="12345 Entenhausen" required>
+			<input type="text" name="sc-addr1" maxlength="30" placeholder="Hauptstraße 1" required>
+			<input type="text" name="sc-addr2" maxlength="30" placeholder="12345 Entenhausen" required>
 			<input type="text" name="sc-addr3" placeholder="c/o Frank Nord">
 			<select name="sc-country" selected="Deutschland">
 				<option value="DE">Deutschland</option>
@@ -721,10 +721,10 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 			</select>
 
 			<label for="sc-email">E-Mail-Adresse</label>
-			<input type="text" name="sc-email" pattern=".+@.+\..+" placeholder="h.acker@example.com" required>
+			<input type="text" name="sc-email" pattern=".+@.+\..+" maxlength="50" placeholder="h.acker@example.com" required>
 
 			<label for="sc-pgp">Optional: PGP-Key ID (Key muss auf den Key-Servern sein)</label>
-			<input type="text" name="sc-pgp" pattern="(0x[a-f0-9]{16}|)" placeholder="0x1337cafe2342beef">
+			<input type="text" name="sc-pgp" pattern="(0x[a-f0-9]{16}|)" maxlength="18" placeholder="0x1337cafe2342beef">
 
 			<button id="show-form" type="submit">Drucken</button>
 
