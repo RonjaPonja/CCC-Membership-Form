@@ -414,8 +414,7 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 			});
 
 			var today = new Date();
-			var today_string = [today.getDate(), today.getMonth() + 1, today.getFullYear()].join('.');
-			document.getElementsByName('date')[0].value = today_string;
+			document.getElementsByName('date')[0].value = today.toISOString().substring(0,10);
 
 			document.getElementById('sc-form').addEventListener("submit", function(e){
 				e.preventDefault();
