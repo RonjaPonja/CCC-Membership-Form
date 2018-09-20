@@ -433,7 +433,9 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 				document.getElementsByName('addr3')[0].value = document.getElementsByName('sc-addr3')[0].value;
 				document.getElementsByName('country')[0].value = document.getElementsByName('sc-country')[0].value;
 				document.getElementsByName('email')[0].value = document.getElementsByName('sc-email')[0].value;
-				document.getElementsByName('pgp')[0].value = document.getElementsByName('sc-pgp')[0].value;
+				var pgp_id = document.getElementsByName('sc-pgp')[0].value.replace(/\s/g, '');
+				if (pgp_id.length == 16) { pgp_id = '0x' + pgp_id; }
+				document.getElementsByName('pgp')[0].value = pgp_id;
 				document.getElementsByName('comment')[0].value = document.getElementsByName('sc-comment')[0].value;
 				generateQR()
 				window.print();
@@ -731,7 +733,7 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 			<input type="text" name="sc-email" pattern=".+@.+\..+" maxlength="50" placeholder="h.acker@example.com" required>
 
 			<label for="sc-pgp">Optional: PGP-Key ID (Key muss auf den Key-Servern sein)</label>
-			<input type="text" name="sc-pgp" pattern="(0x[a-f0-9]{16}|)" maxlength="18" placeholder="0x1337cafe2342beef">
+			<input type="text" name="sc-pgp" pattern="(0x)?[0-9a-fA-F]{16}([0-9a-fA-F]{24})?" maxlength="50" placeholder="0x1337cafe2342feed" onblur="this.value = this.value.replace(/\s/g, '');">
 
 			<label><input type="checkbox" name="sc-consent"> Einwilligung Benachrichtigungen</label>
 
