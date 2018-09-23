@@ -9,7 +9,8 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 		html, body {
 			sacrifice: goat;
 			font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
-			font-size: 15px;
+			font-size: 10px;
+			line-height: 1.3;
 			background-color: #ccc;
 			margin: 0 !important;
 			padding: 0 !important;
@@ -134,7 +135,7 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 			left: 25mm;
 			bottom: 10mm;
 			width: 165mm;
-			height: 25mm;
+			height: 18mm;
 		}
 
 		.dinFoot span {
@@ -196,7 +197,7 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 			resize: none;
 			overflow: hidden;
 			border: none;
-			font-size: 15px;
+			font-size: 14px;
 			line-height: 18px;
 		}
 
@@ -378,6 +379,8 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 			});
 			formDict["payment"] = form.querySelector('input[name="payment"]:checked').value;
 
+			formDict["consent"] = document.getElementsByName('consent')[0].checked;
+
 			var jsonMsg = JSON.stringify(formDict);
 			console.log(jsonMsg);
 
@@ -424,12 +427,15 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 
 				document.getElementsByName('firstname')[0].value = document.getElementsByName('sc-firstname')[0].value;
 				document.getElementsByName('lastname')[0].value = document.getElementsByName('sc-lastname')[0].value;
+				document.getElementsByName('consent')[0].checked = document.getElementsByName('sc-consent')[0].checked;
 				document.getElementsByName('addr1')[0].value = document.getElementsByName('sc-addr1')[0].value;
 				document.getElementsByName('addr2')[0].value = document.getElementsByName('sc-addr2')[0].value;
 				document.getElementsByName('addr3')[0].value = document.getElementsByName('sc-addr3')[0].value;
 				document.getElementsByName('country')[0].value = document.getElementsByName('sc-country')[0].value;
 				document.getElementsByName('email')[0].value = document.getElementsByName('sc-email')[0].value;
-				document.getElementsByName('pgp')[0].value = document.getElementsByName('sc-pgp')[0].value;
+				var pgp_id = document.getElementsByName('sc-pgp')[0].value.replace(/\s/g, '');
+				if (pgp_id.length == 16) { pgp_id = '0x' + pgp_id; }
+				document.getElementsByName('pgp')[0].value = pgp_id;
 				document.getElementsByName('comment')[0].value = document.getElementsByName('sc-comment')[0].value;
 				generateQR()
 				window.print();
@@ -441,6 +447,10 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 	<div id="sc-container">
 		<form id="sc-form">
 			<input type="hidden" name="version" value="alpha"/>
+
+			<p>
+				Daten, die in dieses Antragsformular eingetragen werden, gehen <span class="bold">nicht</span> über das Internet. Die Daten werden ausschließlich im Web-Browser verarbeitet und im fertigen Formular maschinenlesbar dargestellt. Dies hilft uns Anträge schneller zu berarbeiten.
+			</p>
 
 			<p>
 				Ich möchte <span class="bold">Fördermitglied im Chaos Computer Club e. V.</span> werden (unregelmäßig und <span class="bold">selten</span> erscheinende Datenschleuder inklusive) und habe <a href="https://www.ccc.de/de/satzung">die Satzung</a> und <a href="https://www.ccc.de/de/faq">FAQ</a> gelesen.
@@ -723,7 +733,9 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 			<input type="text" name="sc-email" pattern=".+@.+\..+" maxlength="50" placeholder="h.acker@example.com" required>
 
 			<label for="sc-pgp">Optional: PGP-Key ID (Key muss auf den Key-Servern sein)</label>
-			<input type="text" name="sc-pgp" pattern="(0x[a-f0-9]{16}|)" maxlength="18" placeholder="0x1337cafe2342beef">
+			<input type="text" name="sc-pgp" pattern="(0x)?[0-9a-fA-F]{16}([0-9a-fA-F]{24})?" maxlength="50" placeholder="0x1337cafe2342feed" onblur="this.value = this.value.replace(/\s/g, '');">
+
+			<label><input type="checkbox" name="sc-consent">Über wichtige Vereinsangelegenheiten möchte ich per Mail oder ersatzweise brieflich informiert werden.</label>
 
 			<button id="show-form" type="submit">Drucken</button>
 
@@ -732,7 +744,7 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 
 			<br>
 			<p>
-				Solltest du Probleme mit diesem Formular haben, möchten wir <a href="https://github.com/HerrSpace/CCC-Membership-Form/issues">diese gerne erfahren</a>. Alternativ kannst du <a href="https://www.ccc.de/system/uploads/255/original/Supporterform-de-v4.pdf">diesen PDF Antrag</a> ausfüllen.
+				Solltest du Probleme mit diesem Formular haben, möchten wir <a href="https://github.com/HerrSpace/CCC-Membership-Form/issues">diese gerne erfahren</a>. Alternativ kannst du <a href="https://www.ccc.de/system/uploads/265/original/Supporterform-de-v5.pdf">diesen PDF Antrag</a> ausfüllen.
 			</p>
 		</form>
 	</div>
@@ -760,7 +772,7 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 			<h3>Antrag auf Fördermitgliedschaft im Chaos Computer Club e. V.</h3>
 
 			<form id="application" action="#">
-				<input type="hidden" name="version" value="alpha"/>
+				<input type="hidden" name="version" value="1"/>
 				<p>
 					Ich möchte <span class="bold">Fördermitglied im Chaos Computer Club e. V.</span> werden (unregelmäßig und <span class="bold">selten</span> erscheinende Datenschleuder inklusive) und habe die Satzung (<a href="https://www.ccc.de/de/satzung">https://www.ccc.de/de/satzung</a>) und FAQ (<a href="https://www.ccc.de/de/faq">https://www.ccc.de/de/faq</a>) gelesen.
 				</p>
@@ -773,17 +785,31 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 				<p>
 					<div id="personalInfo">
 						<div>
-							<div style="width: 25%;">
+							<div style="width: 33%;">
 								<input type="text" name="firstname">
 								<span>Vorname</span>
 							</div>
-							<div style="width: 25%;">
+							<div style="width: 33%;">
 								<input type="text" name="lastname">
 								<span>Nachname</span>
 							</div>
+							<div style="width: 34%;">
+								<input type="text" name="addr3">
+								<span>Optional: Adresszusatz, Organisation oder c/o</span>
+							</div>
+						</div>
+						<div>
 							<div style="width: 50%;">
 								<input type="text" name="addr1">
 								<span>Straße und Hausnummer</span>
+							</div>
+							<div style="width: 30%;">
+								<input type="text" name="addr2">
+								<span>Postleitzahl und Stadt</span>
+							</div>
+							<div style="width: 20%;">
+								<input type="text" name="country">
+								<span>Land</span>
 							</div>
 						</div>
 						<div>
@@ -791,38 +817,29 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 								<input type="text" name="email">
 								<span class="bold">E-Mail-Adresse – (Bitte unbedingt angeben!)</span>
 							</div>
-							<div style="width: 25%;">
-								<input type="text" name="addr2">
-								<span>Postleitzahl und Stadt</span>
-							</div>
-							<div style="width: 25%;">
-								<input type="text" name="country">
-								<span>Land</span>
-							</div>
-						</div>
-						<div>
 							<div style="width: 50%;">
 								<input type="text" name="pgp">
 								<span>Optional: PGP-Key ID (Key muss auf den <span class="bold">Key-Servern</span> sein)</span>
 							</div>
-							<div style="width: 50%;">
-								<input type="text" name="addr3">
-								<span>Optional: Adresszusatz, Organisation oder c/o</span>
-							</div>
+						</div>
+					</div>
+					<div>
+						<div style="width: 100%;">
+							<input type="checkbox" name="consent">
+							<span>Über wichtige Vereinsangelegenheiten möchte ich per Mail oder ersatzweise brieflich informiert werden.</span>
 						</div>
 					</div>
 				</p>
 				<p>
-					<span>Dieses Formular ausdrucken</span>
+					<span>Dieses Formular ausdrucken und <span class="bold">handschriftlich</span> unterzeichnen</span>
 				</p>
-				<p>
-					<div><span class="bold">Handschriftlich</span> unterzeichnen</div>
-					<div class="signfield" style="width: 20%;">
+				<p style="height: 5px">
+					<div class="signfield" style="width: 20%">
 						<span class="underline"></span>
 						<input type="text" name="date" class="underline">
 						<span>Datum</span>
 					</div>
-					<div class="signfield" style="width: 80%;">
+					<div class="signfield" style="width: 80%">
 						<span class="underline"></span>
 						<input type="text" name="signature" class="underline" readonly>
 						<span>Unterschrift (bei Minderjährigen Unterschrift der Erziehungsberechtigten)</span>
