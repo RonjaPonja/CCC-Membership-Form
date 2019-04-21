@@ -1,0 +1,266 @@
+<html>
+<!--
+Complain about how broken everything is plz:
+https://github.com/HerrSpace/CCC-Membership-Form/issues
+-->
+<head>
+	<meta name="viewport" content="width=device-width">
+	<style type="text/css">
+{% include 'res/ccc.css' %}
+	</style>
+	<script type="text/javascript">
+{% include 'res/js-base64.js' %}
+	</script>
+	<script type="text/javascript">
+{% include 'res/qrious.js' %}
+	</script>
+	<script type="text/javascript">
+		function generateQR() {
+			var form = document.getElementById('application');
+
+			var formDict = {};
+			var inputs = Array.prototype.slice.call(form.getElementsByTagName('input'));
+			inputs.forEach(function(input) {
+				if (input.value) {
+					formDict[input.name] = input.value;
+				}
+			});
+			formDict["payment"] = form.querySelector('input[name="payment"]:checked').value;
+
+			formDict["consent"] = document.getElementsByName('consent')[0].checked;
+
+			var jsonMsg = JSON.stringify(formDict);
+			console.log(jsonMsg);
+
+			var qr = new QRious({
+				element: document.getElementById('qrCode'),
+				value: Base64.encode(jsonMsg),
+				size: 200
+			})
+
+			var fields = [
+				document.getElementsByName("firstname")[0].value + ' ' +
+				document.getElementsByName("lastname")[0].value,
+				document.getElementsByName("addr1")[0].value,
+				document.getElementsByName("addr2")[0].value,
+				document.getElementsByName("country")[0].value,
+			]
+
+			if (document.getElementsByName("addr3")[0].value != '') {
+				fields.splice(1, 0, document.getElementsByName("addr3")[0].value);
+			}
+
+			var ret = document.getElementsByClassName("dinAddrRet")[0];
+			ret.innerHTML=fields.join("•");
+		}
+
+		window.onload = function() {
+			document.getElementById('sc-container').style.display = 'block';
+			document.getElementById('formpage').style.display = 'none';
+
+			var qr = new QRious({
+				element: document.getElementById('qrCode'),
+				value: "from __future__ import dbaseIII",
+				size: 200
+			});
+
+			var today = new Date();
+			document.getElementsByName('date')[0].value = today.toISOString().substring(0,10);
+
+			document.getElementById('sc-form').addEventListener("submit", function(e){
+				e.preventDefault();
+
+				document.getElementsByName('payment')[0].checked = document.getElementsByName('sc-payment')[0].checked
+				document.getElementsByName('payment')[1].checked = document.getElementsByName('sc-payment')[1].checked
+
+				document.getElementsByName('firstname')[0].value = document.getElementsByName('sc-firstname')[0].value;
+				document.getElementsByName('lastname')[0].value = document.getElementsByName('sc-lastname')[0].value;
+				document.getElementsByName('consent')[0].checked = document.getElementsByName('sc-consent')[0].checked;
+				document.getElementsByName('addr1')[0].value = document.getElementsByName('sc-addr1')[0].value;
+				document.getElementsByName('addr2')[0].value = document.getElementsByName('sc-addr2')[0].value;
+				document.getElementsByName('addr3')[0].value = document.getElementsByName('sc-addr3')[0].value;
+				document.getElementsByName('country')[0].value = document.getElementsByName('sc-country')[0].value;
+				document.getElementsByName('email')[0].value = document.getElementsByName('sc-email')[0].value;
+				var pgp_id = document.getElementsByName('sc-pgp')[0].value.replace(/\s/g, '');
+				if (pgp_id.length == 16) { pgp_id = '0x' + pgp_id; }
+				document.getElementsByName('pgp')[0].value = pgp_id;
+				document.getElementsByName('comment')[0].value = document.getElementsByName('sc-comment')[0].value;
+				generateQR()
+				window.print();
+			});
+		}
+	</script>
+</head>
+<body>
+	<div id="sc-container">
+		<form id="sc-form">
+			<input type="hidden" name="version" value="alpha"/>
+
+			<p>
+				Daten, die in dieses Antragsformular eingetragen werden, gehen <span class="bold">nicht</span> über das Internet. Die Daten werden ausschließlich im Web-Browser verarbeitet und im fertigen Formular maschinenlesbar dargestellt. Dies hilft uns Anträge schneller zu berarbeiten.
+			</p>
+
+			<p>
+				Ich möchte <span class="bold">Fördermitglied im Chaos Computer Club e. V.</span> werden (unregelmäßig und <span class="bold">selten</span> erscheinende Datenschleuder inklusive) und habe <a href="https://www.ccc.de/de/satzung">die Satzung</a> und <a href="https://www.ccc.de/de/faq">FAQ</a> gelesen.
+			</p>
+
+			<div class="sc-payment-switch">
+				<div class="sc-payment-title">Normaler oder ermäßigter Beitrag?</div>
+				<input type="radio" id="sc-regular" name="sc-payment" value="regular" checked/>
+				<label for="sc-regular">Normal (72€)</label>
+				<input type="radio" id="sc-reduced" name="sc-payment" value="reduced" />
+				<label for="sc-reduced">Ermäßigt (36€ mit Nachweis)</label>
+			</div>
+
+			<label for="sc-firstname">Vorname</label>
+			<input type="text" name="sc-firstname" maxlength="40" placeholder="Hannah" required autofocus>
+
+			<label for="sc-lastname">Nachname</label>
+			<input type="text" name="sc-lastname" maxlength="40" placeholder="Acker" required>
+
+			<label for="sc-addr1">Adresse</label>
+			<input type="text" name="sc-addr1" maxlength="60" placeholder="Hauptstraße 1" required>
+			<input type="text" name="sc-addr2" maxlength="60" placeholder="12345 Entenhausen" required>
+			<input type="text" name="sc-addr3" maxlength="60" placeholder="c/o Frank Nord">
+			<select name="sc-country" selected="Deutschland">
+{%- import 'res/countries-de.j2' as countries %}
+{%- for tuple in countries.cc_name %}
+				<option value="{{ tuple[0] }}">{{ tuple[1] }}</option>
+{%- endfor %}
+			</select>
+
+			<label for="sc-email">E-Mail-Adresse</label>
+			<input type="text" name="sc-email" pattern=".+@.+\..+" maxlength="50" placeholder="h.acker@example.com" required>
+
+			<label for="sc-pgp">Optional: PGP-Key ID (Key muss auf den Key-Servern sein)</label>
+			<input type="text" name="sc-pgp" pattern="(0x)?[0-9a-fA-F]{16}([0-9a-fA-F]{24})?" maxlength="50" placeholder="0x1337cafe2342feed" onblur="this.value = this.value.replace(/\s/g, '');">
+
+			<label><input type="checkbox" name="sc-consent">Über wichtige Vereinsangelegenheiten möchte ich per Mail oder ersatzweise brieflich informiert werden.</label>
+
+			<button id="show-form" type="submit">Drucken</button>
+
+			<label for="sc-comment">Bemerkungen</label>
+			<textarea class="comment" id="sc-comment" name="sc-comment" rows="3" maxlength="144"></textarea>
+
+			<br>
+			<p>
+				Solltest du Probleme mit diesem Formular haben, möchten wir <a href="https://github.com/HerrSpace/CCC-Membership-Form/issues">diese gerne erfahren</a>. Alternativ kannst du <a href="https://www.ccc.de/system/uploads/269/original/Supporterform-de-v5.pdf">diesen PDF Antrag</a> ausfüllen.
+			</p>
+		</form>
+	</div>
+	<page size="A4" id="formpage">
+		<span class="falzt"></span>
+		<span class="falzb"></span>
+		<span class="hole"></span>
+
+		<div class="dinHead">
+			<h1>Chaos Computer Club e. V.</h1>
+			<span><a href="mailto:office@ccc.de">office@ccc.de</a> • <a href="https://www.ccc.de/de/membership">https://www.ccc.de/de/membership</a></span>
+		</div>
+
+		<div class="dinAddrRet"></div>
+		<div class="dinAddrFwd">
+			Chaos Computer Club e. V.<br/>Zeiseweg 9<br/>22765 Hamburg<br/>Germany
+		</div>
+
+		<div class="dinInfo">
+			<canvas id="qrCode"></canvas>
+		</div>
+
+		<div class="dinCont">
+
+			<h3>Antrag auf Fördermitgliedschaft im Chaos Computer Club e. V.</h3>
+
+			<form id="application" action="#">
+				<input type="hidden" name="version" value="1"/>
+				<p>
+					Ich möchte <span class="bold">Fördermitglied im Chaos Computer Club e. V.</span> werden (unregelmäßig und <span class="bold">selten</span> erscheinende Datenschleuder inklusive) und habe die Satzung (<a href="https://www.ccc.de/de/satzung">https://www.ccc.de/de/satzung</a>) und FAQ (<a href="https://www.ccc.de/de/faq">https://www.ccc.de/de/faq</a>) gelesen.
+				</p>
+				<p>
+					<input type="radio" name="payment" value="regular" id="regular" onclick="return false;">
+					<label for="regular"><span class="bold">Normale</span> Fördermitgliedschaft für <span class="bold">72€</span> pro Jahr oder</label><br/>
+					<input type="radio" name="payment" value="reduced" id="reduced" onclick="return false;">
+					<label for="reduced"><span class="bold">Ermäßigte</span> Fördermitgliedschaft für <span class="bold">36€</span> pro Jahr. Einen <span class="bold">Nachweis</span>, aus dem einer der folgenden Ermäßigungsgründe hervorgeht, lege ich in Kopie bei: Studium, Schule, Arbeitslosigkeit, Umschulung, Rente oder Behinderung.</label>
+				</p>
+				<p>
+					<div id="personalInfo">
+						<div>
+							<div style="width: 33%;">
+								<input type="text" name="firstname">
+								<span>Vorname</span>
+							</div>
+							<div style="width: 33%;">
+								<input type="text" name="lastname">
+								<span>Nachname</span>
+							</div>
+							<div style="width: 34%;">
+								<input type="text" name="addr3">
+								<span>Optional: Adresszusatz, Organisation oder c/o</span>
+							</div>
+						</div>
+						<div>
+							<div style="width: 50%;">
+								<input type="text" name="addr1">
+								<span>Straße und Hausnummer</span>
+							</div>
+							<div style="width: 30%;">
+								<input type="text" name="addr2">
+								<span>Postleitzahl und Stadt</span>
+							</div>
+							<div style="width: 20%;">
+								<input type="text" name="country">
+								<span>Land</span>
+							</div>
+						</div>
+						<div>
+							<div style="width: 50%;">
+								<input type="text" name="email">
+								<span class="bold">E-Mail-Adresse – (Bitte unbedingt angeben!)</span>
+							</div>
+							<div style="width: 50%;">
+								<input type="text" name="pgp">
+								<span>Optional: PGP-Key ID (Key muss auf den <span class="bold">Key-Servern</span> sein)</span>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div style="width: 100%;">
+							<input type="checkbox" name="consent">
+							<span>Über wichtige Vereinsangelegenheiten möchte ich per Mail oder ersatzweise brieflich informiert werden.</span>
+						</div>
+					</div>
+				</p>
+				<p>
+					<span>Dieses Formular ausdrucken und <span class="bold">handschriftlich</span> unterzeichnen</span>
+				</p>
+				<p style="height: 5px">
+					<div class="signfield" style="width: 20%">
+						<span class="underline"></span>
+						<input type="text" name="date" class="underline">
+						<span>Datum</span>
+					</div>
+					<div class="signfield" style="width: 80%">
+						<span class="underline"></span>
+						<input type="text" name="signature" class="underline" readonly>
+						<span>Unterschrift (bei Minderjährigen Unterschrift der Erziehungsberechtigten)</span>
+					</div>
+				</p>
+			</form>
+			<p>
+				<span>Diesen Antrag <span class="bold">vorzugsweise</span> einscannen und <span class="bold">per E-Mail an <a href="mailto:office@ccc.de">office@ccc.de</a></span> senden oder ausreichend frankiert per Post senden. <span class="bold">Einschreiben oder nicht ausreichend frankierte Briefe werden nicht angenommen!</span> Es ist einfach tagsüber niemand da um die Post anzunehmen.
+			</p>
+			<p>
+				<span>Die E-Mail von <a href="mailto:office@ccc.de">office@ccc.de</a> (PGP-Key zu finden auf <a href="https://www.ccc.de/de/office">https://www.ccc.de/de/office</a>) mit Bestätigung und weiteren Anweisungen sollte <span class="bold">binnen drei Wochen</span> eintreffen. Zum Jahresende kann dies noch länger dauern.</span>
+			</p>
+			<span class="underline">Bemerkungen:</span>
+			<textarea class="comment" id="comment" name="comment" rows="3"></textarea>
+		</div>
+
+		<div class="dinFoot">
+			<span id="uno"><span class="bold">Verein:</span><br/>Eingetragen beim Vereinsgericht Hamburg unter der Vereinsregister-<br/>nummer: 10940</span>
+			<span id="dos"><span class="bold">Internet:</span><br/>Webseite: <a href="https://www.ccc.de/">https://www.ccc.de/</a> Regionale Erfakreise und Chaostreffs: <a href="https://www.ccc.de/regional">https://www.ccc.de/regional</a></span>
+			<span id="tres"><span class="bold">Kontakt:</span><br/>Allgemeine Anfragen: <a href="mailto:mail@ccc.de">mail@ccc.de</a><br/>Mitgliederverwaltung: <a href="mailto:office@ccc.de">office@ccc.de</a></span>
+		</div>
+	</page>
+</body>
+</html>
