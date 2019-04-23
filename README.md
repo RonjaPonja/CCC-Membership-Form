@@ -3,3 +3,8 @@
 - all-in-one file so it's easy to download and use offline.
 - mobile friendly form with field validation.
 - somewhat sane fallbacks for users with disabled javascript.
+
+## Generating the application form
+
+With the dependencies in `Pipfile` or `requirements.txt` installed,
+run `./form.py foerder.j2` to generate the `foerder.html`.
