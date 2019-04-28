@@ -15,6 +15,8 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 {% include 'res/qrious.js' %}
 	</script>
 	<script type="text/javascript">
+{% include 'res/form.js' %}
+
 		function generateQR() {
 			var form = document.getElementById('application');
 
@@ -69,22 +71,11 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 
 			document.getElementById('sc-form').addEventListener("submit", function(e){
 				e.preventDefault();
-
-				document.getElementsByName('payment')[0].checked = document.getElementsByName('sc-payment')[0].checked
-				document.getElementsByName('payment')[1].checked = document.getElementsByName('sc-payment')[1].checked
-
-				document.getElementsByName('firstname')[0].value = document.getElementsByName('sc-firstname')[0].value;
-				document.getElementsByName('lastname')[0].value = document.getElementsByName('sc-lastname')[0].value;
-				document.getElementsByName('consent')[0].checked = document.getElementsByName('sc-consent')[0].checked;
-				document.getElementsByName('addr1')[0].value = document.getElementsByName('sc-addr1')[0].value;
-				document.getElementsByName('addr2')[0].value = document.getElementsByName('sc-addr2')[0].value;
-				document.getElementsByName('addr3')[0].value = document.getElementsByName('sc-addr3')[0].value;
-				document.getElementsByName('country')[0].value = document.getElementsByName('sc-country')[0].value;
-				document.getElementsByName('email')[0].value = document.getElementsByName('sc-email')[0].value;
+				syncFormFields('sc-form', 'formpage', 'sc-');
+				/* Ensure format 0x1111222233334444 for PGP ID */
 				var pgp_id = document.getElementsByName('sc-pgp')[0].value.replace(/\s/g, '');
 				if (pgp_id.length == 16) { pgp_id = '0x' + pgp_id; }
 				document.getElementsByName('pgp')[0].value = pgp_id;
-				document.getElementsByName('comment')[0].value = document.getElementsByName('sc-comment')[0].value;
 				generateQR()
 				window.print();
 			});
