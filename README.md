@@ -8,3 +8,7 @@
 
 With the dependencies in `Pipfile` or `requirements.txt` installed,
 run `./form.py foerder.j2` to generate the `foerder.html`.
+
+## Form in Master
+
+ https://herrspace.github.io/CCC-Membership-Form/foerder.html
