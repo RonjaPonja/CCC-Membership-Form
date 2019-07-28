@@ -367,7 +367,7 @@ function syncFormFields (screenParentId, printParentId, screenPrefix) {
         var type = source.getAttribute('type');
         var value = source.getAttribute('value');
         var selector = `input[type=${type}][name=${name}]`;
-        if (value !== null) {
+        if (value !== null && type != 'number') {
             selector = `input[type=${type}][name=${name}][value=${value}]`;
         }
         syncElement(source, printParent, selector);
