@@ -7,7 +7,6 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 	<meta name="viewport" content="width=device-width">
 	<style type="text/css">
 html, body {
-	sacrifice: goat;
 	font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
 	font-size: 15px;
 	line-height: 1.3;
@@ -15,149 +14,12 @@ html, body {
 	margin: 0 !important;
 	padding: 0 !important;
 }
-page[size="A4"] {
-	position: relative;
-	background-color: #fff;
-	width: 21cm;
-	height: 29.7cm;
-	display: block;
-	margin: 1cm auto;
-	padding: 1cm 2cm;
-	box-sizing: border-box;
-	margin-bottom: 0.5cm;
-	box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
-}
-
-@media print {
-	@page {
-		margin: 0mm;
-		size: auto;
-	}
-	body, page[size="A4"] {
-		margin: 0;
-		box-shadow: 0;
-		/* Thanks obama. */
-		-webkit-print-color-adjust: exact;
-		width: 100%;
-		height: 100%;
-	}
-	#formpage {
-		display: block !important;
-	}
-	#sc-container {
-		display: none !important;
-	}
-}
 
 @media screen and (max-device-width: 640px) {
 	#sc-form {
 		max-width: 95% !important;
 	}
 }
-
-.falzt, .falzb, .hole {
-	position: absolute;
-	left: 0;
-	width: 7mm;
-	border-bottom: 1px black solid;
-}
-.falzt {
-	top: 87mm;
-}
-.falzb {
-	top: 192mm;
-}
-.hole {
-	top: 148.5mm;
-	width: 10mm;
-}
-
-
-.dinHead,
-.dinAddrRet,
-.dinAddrFwd,
-.dinInfo,
-.dinCont,
-.dinFoot {
-	position: absolute;
-	/*border: 1px solid black;*/
-}
-
-.dinHead {
-	top: 10mm;
-	left: 25mm;
-	width: 165mm;
-	height: 15mm;
-}
-
-.dinHead h1 {
-	margin: 0;
-}
-.dinHead ul {
-	display: inline;
-}
-
-.dinAddrRet {
-	font-size: 10px;
-	padding: 3px 0 0 0;
-	left: 25mm;
-	top: 27mm;
-	width: 85mm;
-	height: 5mm;
-}
-
-.dinAddrFwd {
-	left: 25mm;
-	top: 37mm;
-	width: 85mm;
-	height: 35mm;
-}
-
-.dinInfo {
-	right: 20mm;
-	top: 32mm;
-	width: 65mm;
-	height: 40mm;
-}
-
-.dinCont {
-	left: 25mm;
-	top: 80.46mm;
-	width: 165mm;
-	height: 175mm;
-}
-
-.dinCont h3 {
-	margin-top: 0;
-}
-
-.dinFoot {
-	left: 25mm;
-	bottom: 10mm;
-	width: 165mm;
-	height: 18mm;
-}
-
-.dinFoot span {
-	position: absolute;
-	top: 0;
-}
-
-.dinFoot #uno {
-	left: 0%;
-	width: 33%;
-}
-
-.dinFoot #dos {
-	left: 34%;
-	width: 38%;
-
-}
-
-.dinFoot #tres {
-	left: 73%;
-}
-
 
 .bold { font-weight: bold; }
 
@@ -201,14 +63,6 @@ input[type="text"].focus {
 	line-height: 18px;
 }
 
-#comment {
-	background-size: 100% 18px;
-
-	background-image: -moz-repeating-linear-gradient(180deg, transparent, transparent 17px, black);
-	background-image: -webkit-repeating-linear-gradient(180deg, transparent, transparent 17px, black);
-	background-image: -o-repeating-linear-gradient(180deg, transparent, transparent 17px, black);
-	background-image: repeating-linear-gradient(180deg, transparent, transparent 17px, black);
-}
 #sc-comment {
 	margin-top: 10px;
 	height: auto !important;
@@ -218,40 +72,6 @@ input[type="text"].focus {
 	background-image: -o-repeating-linear-gradient(180deg, transparent, transparent 17px, #dcdcdc);
 	background-image: repeating-linear-gradient(180deg, transparent, transparent 17px, #dcdcdc);
 	background-size: 100% 18px;
-}
-
-#qrCode {
-	position: absolute;
-	width: 200;
-	height: 200;
-	right: 0;
-	bottom: 0;
-}
-
-#letterHead ul {
-	list-style-type: none;
-}
-#letterHead ul li {
-	display: inline;
-}
-#personalInfo div div,
-.signfield {
-	float: left;
-	box-sizing: border-box;
-	padding: 2px 2px;
-}
-.signfield span {
-	text-align: center;
-	font-size: 10px;
-}
-#personalInfo div div span {
-	font-size: 10px;
-	padding: 2px 0;
-	/*margin-top: 10px;*/
-}
-
-.dinCont li {
-	margin-bottom: 7px;
 }
 
 #sc-container {
@@ -352,6 +172,169 @@ input[type="text"].focus {
 	background-color: #3edd55;
 	-webkit-box-shadow: none;
 	box-shadow: none;
+}
+page[size="A4"] {
+	position: relative;
+	background-color: #fff;
+	width: 21cm;
+	height: 29.7cm;
+	display: block;
+	margin: 1cm auto;
+	padding: 1cm 2cm;
+	box-sizing: border-box;
+	margin-bottom: 0.5cm;
+	box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+}
+
+@media print {
+	@page {
+		margin: 0mm;
+		size: auto;
+	}
+	body, page[size="A4"] {
+		margin: 0;
+		box-shadow: 0;
+		/* Thanks obama. */
+		-webkit-print-color-adjust: exact;
+		width: 100%;
+		height: 100%;
+	}
+	#formpage {
+		display: block !important;
+	}
+	#sc-container {
+		display: none !important;
+	}
+}
+
+.falzt, .falzb, .hole {
+	position: absolute;
+	left: 0;
+	width: 7mm;
+	border-bottom: 1px black solid;
+}
+.falzt {
+	top: 87mm;
+}
+.falzb {
+	top: 192mm;
+}
+.hole {
+	top: 148.5mm;
+	width: 10mm;
+}
+
+.dinHead,
+.dinAddrRet,
+.dinAddrFwd,
+.dinInfo,
+.dinCont,
+.dinFoot {
+	position: absolute;
+	/*border: 1px solid black;*/
+}
+
+.dinHead {
+	top: 10mm;
+	left: 25mm;
+	width: 165mm;
+	height: 15mm;
+}
+.dinHead h1 {
+	margin: 0;
+}
+.dinHead ul {
+	display: inline;
+}
+
+.dinAddrRet {
+	font-size: 10px;
+	padding: 3px 0 0 0;
+	left: 25mm;
+	top: 27mm;
+	width: 85mm;
+	height: 5mm;
+}
+
+.dinAddrFwd {
+	left: 25mm;
+	top: 37mm;
+	width: 85mm;
+	height: 35mm;
+}
+
+.dinInfo {
+	right: 20mm;
+	top: 32mm;
+	width: 65mm;
+	height: 40mm;
+}
+
+.dinCont {
+	left: 25mm;
+	top: 80.46mm;
+	width: 165mm;
+	height: 175mm;
+}
+
+.dinCont h3 {
+	margin-top: 0;
+}
+
+.dinFoot {
+	left: 25mm;
+	bottom: 10mm;
+	width: 165mm;
+	height: 18mm;
+}
+.dinFoot span {
+	position: absolute;
+	top: 0;
+}
+.dinFoot #uno {
+	left: 0%;
+	width: 33%;
+}
+.dinFoot #dos {
+	left: 34%;
+	width: 38%;
+
+}
+.dinFoot #tres {
+	left: 73%;
+}
+
+#qrCode {
+	position: absolute;
+	width: 200;
+	height: 200;
+	right: 0;
+	bottom: 0;
+}
+
+#personalInfo div div,
+.signfield {
+	float: left;
+	box-sizing: border-box;
+	padding: 2px 2px;
+}
+.signfield span {
+	text-align: center;
+	font-size: 10px;
+}
+#personalInfo div div span {
+	font-size: 10px;
+	padding: 2px 0;
+	/*margin-top: 10px;*/
+}
+
+#comment {
+	background-size: 100% 18px;
+
+	background-image: -moz-repeating-linear-gradient(180deg, transparent, transparent 17px, black);
+	background-image: -webkit-repeating-linear-gradient(180deg, transparent, transparent 17px, black);
+	background-image: -o-repeating-linear-gradient(180deg, transparent, transparent 17px, black);
+	background-image: repeating-linear-gradient(180deg, transparent, transparent 17px, black);
 }
 	</style>
 	<script type="text/javascript">
