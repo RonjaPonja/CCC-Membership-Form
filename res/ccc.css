@@ -1,5 +1,4 @@
 html, body {
-	sacrifice: goat;
 	font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
 	font-size: 15px;
 	line-height: 1.3;
@@ -65,13 +64,6 @@ input[type="text"].focus {
 	background-image: -o-repeating-linear-gradient(180deg, transparent, transparent 17px, #dcdcdc);
 	background-image: repeating-linear-gradient(180deg, transparent, transparent 17px, #dcdcdc);
 	background-size: 100% 18px;
-}
-
-#letterHead ul {
-	list-style-type: none;
-}
-#letterHead ul li {
-	display: inline;
 }
 
 #sc-container {
