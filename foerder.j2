@@ -1,9 +1,10 @@
-<html>
+<html lang="de">
 <!--
 Complain about how broken everything is plz:
 https://github.com/HerrSpace/CCC-Membership-Form/issues
 -->
 <head>
+	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<style type="text/css">
 {% include 'res/ccc.css' %}
@@ -54,7 +55,7 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 			}
 
 			var ret = document.getElementsByClassName("dinAddrRet")[0];
-			ret.innerHTML=fields.join("•");
+			ret.innerText=fields.join("•");
 		}
 
 		window.onload = function() {
@@ -256,3 +257,4 @@ https://github.com/HerrSpace/CCC-Membership-Form/issues
 	</page>
 </body>
 </html>
+
